@@ -1,0 +1,106 @@
+{
+  "berita": [
+    {
+      "id": 1,
+      "judul": "Peringatan Maulid Nabi Muhammad SAW 1446 H",
+      "kategori": "Kegiatan",
+      "tanggal": "2025-09-15",
+      "isi": "SD Negeri 2 Mayahan menggelar peringatan Maulid Nabi Muhammad SAW 1446 H dengan berbagai lomba keagamaan, pembacaan shalawat, dan tausiyah. Kegiatan berlangsung meriah dan diikuti seluruh siswa, guru, serta staf.",
+      "gambar": "https://picsum.photos/seed/maulid/600/400"
+    },
+    {
+      "id": 2,
+      "judul": "Penyerahan Rapot Semester Genap TP 2024/2025",
+      "kategori": "Pengumuman",
+      "tanggal": "2025-06-22",
+      "isi": "Penyerahan rapot hasil belajar semester genap tahun pelajaran 2024/2025 akan dilaksanakan pada hari Sabtu, 22 Juni 2025. Orang tua/wali murid diharapkan hadir untuk mengambil rapot dan berdiskusi dengan wali kelas.",
+      "gambar": "https://picsum.photos/seed/rapot/600/400"
+    },
+    {
+      "id": 3,
+      "judul": "Siswa SDN 2 Mayahan Juara OSN Tingkat Kabupaten",
+      "kategori": "Prestasi",
+      "tanggal": "2025-05-10",
+      "isi": "Prestasi membanggakan diraih oleh Ananda Putra Wijaya yang berhasil meraih juara 2 Olimpiade Sains Nasional (OSN) tingkat Kabupaten Grobogan bidang Matematika. Selamat dan sukses!",
+      "gambar": "https://picsum.photos/seed/osn/600/400"
+    },
+    {
+      "id": 4,
+      "judul": "Class Meeting Semester Genap 2025",
+      "kategori": "Kegiatan",
+      "tanggal": "2025-06-10",
+      "isi": "Setelah menyelesaikan Penilaian Akhir Semester, SD Negeri 2 Mayahan mengadakan Class Meeting dengan berbagai lomba seperti futsal, catur, mewarnai, dan puisi. Antusiasme siswa sangat tinggi.",
+      "gambar": "https://picsum.photos/seed/classmeet/600/400"
+    }
+  ],
+  "pengumuman": [
+    {
+      "id": 1,
+      "judul": "Penerimaan Peserta Didik Baru TP 2025/2026",
+      "aktif": true
+    },
+    {
+      "id": 2,
+      "judul": "Libur Semester Genap 2025",
+      "aktif": true
+    },
+    {
+      "id": 3,
+      "judul": "Jadwal Upacara Hari Senin",
+      "aktif": false
+    }
+  ],
+  "galeri": [
+    {
+      "id": 1,
+      "url": "https://picsum.photos/seed/gal1/400/300",
+      "caption": "Upacara Bendera",
+      "kategori": "Upacara"
+    },
+    {
+      "id": 2,
+      "url": "https://picsum.photos/seed/gal2/400/300",
+      "caption": "Kegiatan Belajar",
+      "kategori": "Belajar"
+    },
+    {
+      "id": 3,
+      "url": "https://picsum.photos/seed/gal3/400/300",
+      "caption": "Peringatan HUT RI",
+      "kategori": "Kegiatan"
+    },
+    {
+      "id": 4,
+      "url": "https://picsum.photos/seed/gal4/400/300",
+      "caption": "Ekstrakurikuler Pramuka",
+      "kategori": "Ekskul"
+    },
+    {
+      "id": 5,
+      "url": "https://picsum.photos/seed/gal5/400/300",
+      "caption": "Senam Pagi",
+      "kategori": "Kegiatan"
+    },
+    {
+      "id": 6,
+      "url": "https://picsum.photos/seed/gal6/400/300",
+      "caption": "Lomba 17 Agustus",
+      "kategori": "Kegiatan"
+    }
+  ],
+  "sekolah": {
+    "nama": "SD Negeri 2 Mayahan",
+    "visi": "Terwujudnya peserta didik yang beriman, bertaqwa, cerdas, terampil, berkarakter, dan berwawasan lingkungan yang berlandaskan Pancasila dan Undang-Undang Dasar 1945.",
+    "misi": [
+      "Menyelenggarakan pendidikan berkualitas dan berkarakter",
+      "Meningkatkan kompetensi tenaga pendidik secara berkelanjutan",
+      "Menciptakan lingkungan belajar yang kondusif dan menyenangkan",
+      "Menumbuhkan budaya disiplin, jujur, dan bertanggung jawab",
+      "Mengembangkan potensi siswa melalui akademik dan non-akademik",
+      "Menjalin kemitraan antara sekolah, keluarga, dan masyarakat"
+    ],
+    "kepsek": "Suparno, S.Pd.",
+    "nip": "19700512 199403 1 008",
+    "sambutan": "Assalamu'alaikum Wr. Wb. Selamat datang di website resmi SD Negeri 2 Mayahan. Kami berkomitmen untuk memberikan pendidikan berkualitas yang membentuk generasi cerdas, berkarakter, dan berakhlak mulia. Bersama seluruh warga sekolah dan dukungan orang tua, kami terus berinovasi demi mewujudkan pendidikan yang menyenangkan dan bermakna bagi setiap siswa."
+  }
+}
