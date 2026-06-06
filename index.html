@@ -2063,7 +2063,14 @@ function admModal(type, editData) {
   } else if (type === 'galeri') {
     html = '<h3>' + (editData ? '✏️ Edit Foto' : '🖼️ Tambah Foto') + '</h3>';
     html += '<div class="adm-form">';
-    html += '<div><label>URL Gambar</label><input type="text" id="mGUrl" value="' + (editData ? editData.url : 'https://picsum.photos/seed/galeri/400/300') + '"></div>';
+    html += '<div><label>Pilih Foto dari Komputer</label>';
+    html += '<div style="display:flex;gap:8px;align-items:center">';
+    html += '<button class="btn-abu" onclick="document.getElementById(\'mGalFile\').click()" style="cursor:pointer">📂 Cari Foto</button>';
+    html += '<input type="file" accept="image/*" style="display:none" id="mGalFile" onchange="uploadFoto(this,\'mGUrl\',\'mGalPreview\')">';
+    html += '<span style="font-size:12px;color:var(--teks2)">Atau masukkan URL manual</span>';
+    html += '</div>';
+    html += '<div id="mGalPreview" style="margin-top:6px;display:none"></div></div>';
+    html += '<div><label>URL Gambar</label><input type="text" id="mGUrl" value="' + (editData ? editData.url : '') + '"></div>';
     html += '<div><label>Keterangan</label><input type="text" id="mGCap" value="' + (editData ? escHtml(editData.caption) : '') + '"></div>';
     html += '<div><label>Kategori</label><input type="text" id="mGKat" value="' + (editData ? editData.kategori : '') + '"></div>';
     html += '</div>';
