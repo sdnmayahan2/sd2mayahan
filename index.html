@@ -1248,35 +1248,43 @@ function getData(key, fallback) {
   try { var d = JSON.parse(localStorage.getItem('sd2m_' + key)); return d != null ? d : fallback; }
   catch(e) { return fallback; }
 }
-function setData(key, val) { localStorage.setItem('sd2m_' + key, JSON.stringify(val)); }
+function setData(key, val) {
+  localStorage.setItem('sd2m_' + key, JSON.stringify(val));
+  localStorage.setItem('sd2m_pernah_simpan', 'true');
+}
 
 function getBerita() { return getData('berita', DEFAULT_BERITA); }
 function getPengumuman() { return getData('pengumuman', DEFAULT_PENGUMUMAN); }
 function getGaleri() { return getData('galeri', DEFAULT_GALERI); }
 
-// Muat data dari GitHub Pages (data.json) ke localStorage
+// Muat data dari GitHub Pages (data.json) hanya jika localStorage masih default
 function muatDataDariGitHub() {
+  // Cek apakah user sudah menyimpan data sendiri
+  var sudahDiubah = localStorage.getItem('sd2m_pernah_simpan') === 'true';
+
   fetch('data.json?t=' + Date.now())
     .then(function(res) {
       if (!res.ok) throw new Error('data.json tidak ditemukan');
       return res.json();
     })
     .then(function(data) {
-      if (data.berita) setData('berita', data.berita);
-      if (data.pengumuman) setData('pengumuman', data.pengumuman);
-      if (data.galeri) setData('galeri', data.galeri);
-      if (data.guru) setData('guru', data.guru);
-      if (data.dataSiswa) setData('dataSiswa', data.dataSiswa);
-      if (data.tampilan) { localStorage.setItem('sd2m_tampilan', JSON.stringify(data.tampilan)); }
-      if (data.sekolah) { localStorage.setItem('sd2m_dataSekolah', JSON.stringify(data.sekolah)); }
+      // Hanya muat dari GitHub jika user belum pernah menyimpan data
+      if (!sudahDiubah) {
+        if (data.berita) setData('berita', data.berita);
+        if (data.pengumuman) setData('pengumuman', data.pengumuman);
+        if (data.galeri) setData('galeri', data.galeri);
+        if (data.guru) setData('guru', data.guru);
+        if (data.dataSiswa) setData('dataSiswa', data.dataSiswa);
+        if (data.tampilan) { localStorage.setItem('sd2m_tampilan', JSON.stringify(data.tampilan)); }
+        if (data.sekolah) { localStorage.setItem('sd2m_dataSekolah', JSON.stringify(data.sekolah)); }
+      }
 
-      // Render ulang dengan data dari GitHub
+      // Render ulang dengan data yang ada
       renderSemua();
       try { terapkanTampilan(); } catch(e) {}
-      console.log('✅ Data dimuat dari GitHub Pages');
+      console.log(sudahDiubah ? '📁 Pakai data lokal (user sudah menyimpan)' : '✅ Data dimuat dari GitHub Pages');
     })
     .catch(function(err) {
-      // data.json tidak ada — pakai data lokal/default
       console.log('📁 Pakai data lokal (data.json tidak ditemukan)');
     });
 }
@@ -1516,6 +1524,7 @@ function simpanTampilan() {
     warna: document.getElementById('edWarnaMerah').value
   };
   localStorage.setItem('sd2m_tampilan', JSON.stringify(data));
+  localStorage.setItem('sd2m_pernah_simpan', 'true');
   terapkanTampilan();
   toast('✅ Tampilan depan berhasil disimpan!');
 }
