@@ -1253,10 +1253,40 @@ function getBerita() { return getData('berita', DEFAULT_BERITA); }
 function getPengumuman() { return getData('pengumuman', DEFAULT_PENGUMUMAN); }
 function getGaleri() { return getData('galeri', DEFAULT_GALERI); }
 
+// Muat data dari GitHub Pages (data.json) ke localStorage
+function muatDataDariGitHub() {
+  fetch('data.json?t=' + Date.now())
+    .then(function(res) {
+      if (!res.ok) throw new Error('data.json tidak ditemukan');
+      return res.json();
+    })
+    .then(function(data) {
+      if (data.berita) setData('berita', data.berita);
+      if (data.pengumuman) setData('pengumuman', data.pengumuman);
+      if (data.galeri) setData('galeri', data.galeri);
+      if (data.guru) setData('guru', data.guru);
+      if (data.dataSiswa) setData('dataSiswa', data.dataSiswa);
+      if (data.tampilan) { localStorage.setItem('sd2m_tampilan', JSON.stringify(data.tampilan)); }
+      if (data.sekolah) { localStorage.setItem('sd2m_dataSekolah', JSON.stringify(data.sekolah)); }
+
+      // Render ulang dengan data dari GitHub
+      renderSemua();
+      try { terapkanTampilan(); } catch(e) {}
+      console.log('✅ Data dimuat dari GitHub Pages');
+    })
+    .catch(function(err) {
+      // data.json tidak ada — pakai data lokal/default
+      console.log('📁 Pakai data lokal (data.json tidak ditemukan)');
+    });
+}
+
 // ========================================
 // LOADING
 // ========================================
 window.addEventListener('load', function() {
+  // Muat data dari GitHub Pages (data.json) kalau ada
+  muatDataDariGitHub();
+
   setTimeout(function() {
     var ld = document.getElementById('loading');
     if (ld) ld.style.opacity = '0', setTimeout(function() { ld.style.display = 'none'; }, 500);
